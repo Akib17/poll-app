@@ -13,7 +13,7 @@ const pollSchema = new Schema({
     },
     totalVote: {
         type: Number,
-        defaultValue: 0
+        default: 0
     },
     options: {
         type: [{

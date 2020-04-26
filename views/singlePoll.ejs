@@ -21,13 +21,20 @@
           <h5>Title: <%= poll.title %></h5>
           <p>Description: <%= poll.description %></p>
           <div class="my-3">
-            result
+            <h5>Result</h5>
+            <ul class="list-group">
+              <% for (let r of result) { %>
+                <li class="list-group-item">
+                  <%= r.name %> : <strong class="badge"> <%= r.percentage.toFixed(2) %> % </strong>
+                </li>
+              <% } %>
+            </ul>
           </div>
           <form action="/polls/<%= poll._id %>" method="POST">
             <% for(let option of poll.options) { %>
             <div class="custom-control custom-radio">
               <input type="radio" class="custom-control-input" id="<%= option._id %>" name="option"
-                value="<%= option.name %>">
+                value="<%= option._id %>">
               <label class="custom-control-label" for="<%= option._id %>"><%= option.name %></label>
             </div>
             <% } %>

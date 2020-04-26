@@ -42,13 +42,17 @@ app.get('/create', pollController.pollGetController)
 // Desc: Poll create POST Method
 app.post('/create', pollController.pollPostController)
 
-// @route '/polls'
-// Desc: Get the all Polls
-app.get('/polls', pollController.getAllPolls)
+// @route '/polls/:id'
+// Desc: Post single poll result
+app.post('/polls/:id', pollController.pollResultPostController)
 
 // @route '/polls/:id'
 // Desc: Get single poll
 app.get('/polls/:id', pollController.singlePollController)
+
+// @route '/polls'
+// Desc: Get the all Polls
+app.get('/polls', pollController.getAllPolls)
 
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => console.log(`App is listening to ${PORT}`))
